@@ -1,0 +1,38 @@
+<div class="container py-5">
+    <div class="row py-5">
+        <div class="col-md-10 offset-md-1">
+            <div class="text-end">
+                <button class="btn btn-primary fw-bold btn-sm" (click)="addDocument()">Add Document form</button>
+            </div>
+
+            <div class="py-5">
+                <table class="table table-striped border border-1">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="text-uppercase">ID</th>
+                            <th scope="col" class="text-uppercase">document title</th>
+                            <th scope="col" class="text-uppercase">created date</th>
+                            <th scope="col" class="text-uppercase">document size</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let document of documents; let i = index">
+                            <th scope="row">{{ i + 1 }}</th>
+                            <td>{{ document.document_name }}</td>
+                            <td>{{ document.created_at | date }}</td>
+                            <td> {{ document.field_count }}</td>
+                            <td>
+                                <a [routerLink]="['/document/', document.id ]" class="text-decoration-none">
+                                    Document preview
+                                </a>
+                            </td>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

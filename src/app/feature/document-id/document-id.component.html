@@ -1,0 +1,37 @@
+<div class="container py-5">
+    <div class="row py-5">
+        <h1 class="text-center">
+            {{ document?.document_name }}
+        </h1>
+
+        <div class="py-4">
+            <form>
+                <div *ngFor="let formField of this.document?.fields" class="form-group">
+                    <label> {{ formField.field_name }}</label>
+
+                    <container-element [ngSwitch]="formField.field_type">
+                        <div *ngSwitchCase="1">
+                            <input class="form-control" type="text" />
+                        </div>
+                        <div *ngSwitchCase="2">
+                            <select class="form-select">
+                                <option>
+                                    Option 1
+                                </option>
+                                <option>
+                                    Option 2
+                                </option>
+                            </select>
+                        </div>
+                        <div *ngSwitchCase="3">
+                            <input class="form-control" type="number" />
+
+                        </div>
+                    </container-element>
+                    <br>
+                </div>
+                <button type="button" routerLink="/" class="btn btn-primary">Back</button>
+            </form>
+        </div>
+    </div>
+</div>
